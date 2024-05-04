@@ -1,0 +1,73 @@
+html{
+    font-size: 6.25%;
+}
+*
+{
+    /* Chỉnh padding và margin mặc định bằng 0 */
+    padding: 0;
+    margin: 0;
+    /* Chỉnh kiểu chữ cho toàn bộ thẻ có kiểu monospace */
+    font-family: monospace;
+}
+
+ul
+{
+    /* Không hiển thị hình vẽ ở đầu mục mỗi list item */
+    list-style: none;
+    background: #22438C;
+    /* display: inline-block; */
+    text-align: center;
+}
+
+/* Chỉnh các thẻ li nằm trong thẻ ul có display là inline-block */
+/* Độ rộng(width) của thẻ li bây giờ bằng với độ rộng của nội dung mà thẻ li đó chứa */
+ul li{
+    display: inline-block;
+}
+
+/* 1 phần từ có display: block; có độ rộng bằng với độ rộng của phần tử gần nhất chứa nó */
+/* Selector: thẻ li nằm trong thẻ ul và thẻ ul đó phải nằm trong thẻ li đồng thời thẻ li đó phải nằm trong 1 thẻ ul */
+/* li đó có display: block; trình duyệt sẽ xét cha gần nhất của nó là phần tử nào */
+/* Sau đó sẽ đặt độ rộng của */
+ul li ul.dropdown li{
+    display: block;
+}
+
+/* Chọn các thẻ a nằm trong các thẻ li và các thẻ li này nàm trong các thẻ ul */
+/* Đặt display: block */
+/* width của các thẻ a này bằng với width của các thẻ li gần nhất chứa nó */
+ul li a {
+    display: block;
+    padding: 20px 25px;
+    color: #FFF;
+    text-decoration: none; /*Bỏ gạch chân của thẻ a*/
+    text-align: center;
+    font-size: 20rem;
+}
+
+ul li ul.dropdown
+{
+    /* width: 100%; */
+    background: #22438C;
+    position: absolute;
+    z-index: 999px;
+    display: none;
+}
+
+/* Khi 1 thẻ a được di chuột vào thì sẽ tác động lên thẻ a đó */
+ul li:hover {
+    background-color: #112C66;
+}
+
+/* Tác động vào các thẻ ul thuộc class dropdown với điều kiện: */
+/* Các thẻ ul này nằm trong thẻ li đồng thời thẻ li nằm trong thẻ ul */
+/* Với pseudo class :hover gắn vào thẻ li */
+/* Mô tả: Khi thẻ li nằm trong thẻ ul được di chuột vào, trình duyệt */
+/* sẽ kiểm tra trong thẻ li đó có thẻ ul nào thuộc class dropdown không */
+/* Nếu có thì tác động CSS lên thẻ ul đó */
+ul li:hover ul.dropdown{
+    display: block;
+}
+p{
+    font-size: 20rem;
+}
